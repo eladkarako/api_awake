@@ -24,6 +24,8 @@
   video.appendChild(source);
 
   video.addEventListener('loadedmetadata', function(){
+    video.setAttribute("loop", "");
+/*
     if(video.duration <= 1)           //for webm use loop attribute
       video.setAttribute("loop", "");
     else{                              //for mp4 rewind 
@@ -32,6 +34,7 @@
           video.currentTime = 0.1;
       });
     }
+*/
   });
 
   api_awake = {}
