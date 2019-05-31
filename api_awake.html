@@ -1,0 +1,13 @@
+<html>
+<head></head>
+<body>
+<input type="button" value="ON"  id="button_on"  />  <br/>
+<input type="button" value="OFF" id="button_off" />
+
+<script defer type="application/javascript" src="api_awake.js"></script>
+<script>
+document.querySelector("[id=button_on]").onclick  = function(){ self.api_awake.on();  }
+document.querySelector("[id=button_off]").onclick = function(){ self.api_awake.off(); }
+</script>
+
+</html>
