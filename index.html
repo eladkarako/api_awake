@@ -1,13 +1,27 @@
 <html>
-<head></head>
+<head>
+<meta name="viewport" content="width=device-width"/>
+<style type="text/css">
+-webkit-touch-action:  pan-x pan-y pinch-zoom;
+   -moz-touch-action:  pan-x pan-y pinch-zoom;
+    -ms-touch-action:  pan-x pan-y pinch-zoom;
+     -o-touch-action:  pan-x pan-y pinch-zoom;
+        touch-action:  pan-x pan-y pinch-zoom;
+-webkit-touch-action:  manipulation;
+   -moz-touch-action:  manipulation;
+    -ms-touch-action:  manipulation;
+     -o-touch-action:  manipulation;
+        touch-action:  manipulation;
+</style>
+</head>
 <body>
 <input type="button" value="ON"  id="button_on"  />  <br/>
 <input type="button" value="OFF" id="button_off" />
 
 <script defer type="application/javascript" src="api_awake.js"></script>
 <script>
-document.querySelector("[id=button_on]").onclick  = function(){ self.api_awake.on();  }
-document.querySelector("[id=button_off]").onclick = function(){ self.api_awake.off(); }
+document.querySelector("[id=button_on]").onmousedown  = function(){ self.api_awake.on();  }
+document.querySelector("[id=button_off]").onmousedown = function(){ self.api_awake.off(); }
 </script>
 
 </html>
