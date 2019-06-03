@@ -7,7 +7,7 @@
   video = document.createElement("video");
   video.setAttribute("muted", "");
   video.setAttribute("playsinline", "");
-  //video.setAttribute("loop", "");   //not using 
+  video.setAttribute("loop", "");   //not using 
   video.setAttribute("preload", "auto");
   video.setAttribute("title", "No Sleep");
 
@@ -18,15 +18,16 @@
   video.appendChild(source);
 
   /* WEBM */
+  /*
   source = document.createElement("source");
   source.type = "video/webm";
   source.src = "data:video/webm;base64,GkXfo0AgQoaBAUL3gQFC8oEEQvOBCEKCQAR3ZWJtQoeBAkKFgQIYU4BnQI0VSalmQCgq17FAAw9CQE2AQAZ3aGFtbXlXQUAGd2hhbW15RIlACECPQAAAAAAAFlSua0AxrkAu14EBY8WBAZyBACK1nEADdW5khkAFVl9WUDglhohAA1ZQOIOBAeBABrCBCLqBCB9DtnVAIueBAKNAHIEAAIAwAQCdASoIAAgAAUAmJaQAA3AA/vz0AAA="
   video.appendChild(source);
-
-  video.addEventListener('loadedmetadata', function(){
+  */
+  video.addEventListener('loadedmetadata', function(){    //this is not working needs to bring previous version back...
     video.addEventListener("timeupdate", function(){
-      if(video.currentTime > 4.0) 
-        video.currentTime = 1.0;
+      if(video.currentTime > 3) 
+        video.currentTime = Math.random();
     });
   });
 
