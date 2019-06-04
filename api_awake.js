@@ -36,6 +36,8 @@
   api_awake.is_on = function(){  return (false === video.paused);  }
   api_awake.on    = function(){  video.play();                     }
   api_awake.off   = function(){  video.pause();                    }
+  
+  api_awake.video = video;
 
 
   self.api_awake = api_awake;
