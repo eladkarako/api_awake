@@ -85,7 +85,7 @@ var fullscreen_enabled = false
 
 if(true === fullscreen_enabled){  //https://developer.mozilla.org/en-US/docs/Web/API/Document/fullscreenEnabled
 
-  self.document.documentElement.ondblclick  = function(ev){  //double-click on the document.
+  document.querySelector("body").ondblclick  = function(ev){  //double-click on the document.
                                                 toggle_fullscreen();
                                               };
 }
