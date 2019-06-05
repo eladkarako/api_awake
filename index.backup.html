@@ -25,12 +25,10 @@ html,body,input{
 <input type="button" value="ON"  id="button_on"  />  <br/>
 <input type="button" value="OFF" id="button_off" />
 
-<script defer type="application/javascript" src="_nosleep.js"></script>
+<script defer type="application/javascript" src="api_awake.js"></script>
 <script>
-var nosleep = new NoSleep();
-
-document.querySelector("[id=button_on]").onmousedown  = function(){     nosleep.enable();  }
-document.querySelector("[id=button_off]").onmousedown = function(){     nosleep.disable(); }
+document.querySelector("[id=button_on]").onmousedown  = function(){ self.api_awake.on();  }
+document.querySelector("[id=button_off]").onmousedown = function(){ self.api_awake.off(); }
 </script>
 
 </html>
