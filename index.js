@@ -320,4 +320,4 @@ self.addEventListener("orientationchange",function(){          //"resize" is ano
 
 
 
-document.querySelector("[id=button]").onmousedown  = function(){     toggle_fullscreen();  }
+document.querySelector('input[type="button"]').onmousedown  = function(){     toggle_fullscreen();  }
