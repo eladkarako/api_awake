@@ -25,16 +25,12 @@ html,body,input{
 <input type="button" value="ON"  id="button_on"  />  <br/>
 <input type="button" value="OFF" id="button_off" />
 
+<script defer type="application/javascript" src="_nosleep.js"></script>
 <script>
 var nosleep = new NoSleep();
 
-document.querySelector("[id=button_on]").onmousedown  = function(){
-    if("undefined" !== typeof window.navigator.requestWakeLock){ try{ screen_lock = window.navigator.requestWakeLock("screen");}catch(err){} }    //trying to keep screen-ON using: https://developer.mozilla.org/en-US/docs/Archive/B2G_OS/API/Wake_Lock_API
-};
-
-document.querySelector("[id=button_off]").onmousedown = function(){
-    if("undefined" !== typeof window.navigator.requestWakeLock){ try{ screen_lock.unlock(); }catch(err){} }
-}
+document.querySelector("[id=button_on]").onmousedown  = function(){     nosleep.enable();  }
+document.querySelector("[id=button_off]").onmousedown = function(){     nosleep.disable(); }
 </script>
 
 </html>
