@@ -317,3 +317,7 @@ self.addEventListener("orientationchange",function(){          //"resize" is ano
   self.location.reload(false);
 });
 */
+
+
+
+document.querySelector("[id=button]").onmousedown  = function(){     toggle_fullscreen();  }
