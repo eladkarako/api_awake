@@ -88,8 +88,8 @@ wakelock.method3.init  = function(){
                            var controller = undefined
                              , signal     = undefined
                              ;
-                           
-                           wakelock.method3.on    = function(){    
+
+                           wakelock.method3.on    = function(){
                                                       try{
                                                       controller = new AbortController();
                                                       signal     = controller.signal;
@@ -97,8 +97,8 @@ wakelock.method3.init  = function(){
                                                       WakeLock.request("system", { signal });
                                                       }catch(err){}
                                                     };
-                           
-                           wakelock.method3.off   = function(){    
+
+                           wakelock.method3.off   = function(){
                                                       try{
                                                       controller.abort();
                                                       //controller = undefined; //not a good idea to 'zero-out' async handlers.
@@ -113,10 +113,13 @@ wakelock.method3.init  = function(){
                                                       //then cases where the variables 'controller'/'signal' are 'zero-out' (not initialized)
                                                       if(undefined === controller) return false;
                                                       if(undefined === signal)     return false;
-                                                      
+
                                                       return true;
                                                     }
-                           
+
+                            wakelock.method3._backend = {};
+                            wakelock.method3._backend.controller = controller;
+                            wakelock.method3._backend.signal     = signal;
                          };
 
 
