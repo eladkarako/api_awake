@@ -1,9 +1,5 @@
 "use strict";
-var  html     = document.querySelector("html")
-    ,wakelock = {}
-    ;
-
-
+var wakelock = {};
 
 
 //wake-lock by playing empty-video in the background (must be triggered with a user-click). ---relaying on work done in https://github.com/richtr/NoSleep.js - but modified, using better encoded resources and always 'manual-rewind' instead of using 'loop', also explicitly declare codecs.
@@ -128,32 +124,33 @@ wakelock.method3.init  = function(){
 //------------------------------------------------------------------------------
 
 
-//populate variables that are 'stored in context'
+
+
+//use: first needs to init to populate-variables that are 'stored in-the-same-context-of-the-functions'
 wakelock.method1.init();  //video object
 wakelock.method2.init();  //screen_lock
 wakelock.method3.init();  //controller, signal
 
 
-//------------------------------------------------------------------------------
+//use: triggered by a kind of a click.
 
-
-
+var html = document.querySelector("html")
 
 html.onmousedown = function(){
   if(wakelock.method1.is_on()
   || wakelock.method2.is_on()
   || wakelock.method3.is_on()){ //turn off
-    wakelock.method1.off();
-    wakelock.method2.off();
-    wakelock.method3.off();
-    document.title="stopped";
-    html.setAttribute("isplaying","false");
+       wakelock.method1.off();
+       wakelock.method2.off();
+       wakelock.method3.off();
+       document.title="stopped";
+       html.setAttribute("isplaying","false");
   }
   else{                         //turn on
-    wakelock.method1.on();
-    wakelock.method2.on();
-    wakelock.method3.on();
-    document.title="playing";
-    html.setAttribute("isplaying","true");
+       wakelock.method1.on();
+       wakelock.method2.on();
+       wakelock.method3.on();
+       document.title="playing";
+       html.setAttribute("isplaying","true");
   }
 }
