@@ -4,9 +4,9 @@ var wakelock = {};
 
 //wake-lock by playing empty-video in the background (must be triggered with a user-click). ---relaying on work done in https://github.com/richtr/NoSleep.js - but modified, using better encoded resources and always 'manual-rewind' instead of using 'loop', also explicitly declare codecs.
 wakelock.method1 = {};
-wakelock.method1.on     = function(){};
-wakelock.method1.off    = function(){};
-wakelock.method1.is_on  = undefined;
+wakelock.method1.on     = function(){};                 //dummy function (will be rewritten in 'init')
+wakelock.method1.off    = function(){};                 //dummy function (will be rewritten in 'init')
+wakelock.method1.is_on  = function(){return false;};    //dummy function (will be rewritten in 'init')
 wakelock.method1.init   = function(){
                             var video, source;
 
@@ -59,9 +59,9 @@ wakelock.method1.init   = function(){
 
 //wake-lock supported by Firefox-OS. does not required user-interaction.   ---https://developer.mozilla.org/en-US/docs/Archive/B2G_OS/API/Navigator/requestWakeLock
 wakelock.method2 = {};
-wakelock.method2.on    = function(){};
-wakelock.method2.off   = function(){};
-wakelock.method2.is_on = undefined;
+wakelock.method2.on    = function(){};                 //dummy function (will be rewritten in 'init')
+wakelock.method2.off   = function(){};                 //dummy function (will be rewritten in 'init')
+wakelock.method2.is_on = function(){return false;};    //dummy function (will be rewritten in 'init')
 wakelock.method2.init  = function(){
                             var screen_lock = undefined;
                             wakelock.method2.on    = function(){    if("undefined" !== typeof window.navigator.requestWakeLock){ try{ screen_lock = window.navigator.requestWakeLock("screen");}catch(err){} }    };    //trying to keep screen-ON using: https://developer.mozilla.org/en-US/docs/Archive/B2G_OS/API/Wake_Lock_API
@@ -77,9 +77,9 @@ wakelock.method2.init  = function(){
 
 //wake-lock (newer then above) ---https://w3c.github.io/wake-lock/#examples
 wakelock.method3 = {};
-wakelock.method3.on    = function(){};
-wakelock.method3.off   = function(){};
-wakelock.method3.is_on = undefined;
+wakelock.method3.on    = function(){};                 //dummy function (will be rewritten in 'init')
+wakelock.method3.off   = function(){};                 //dummy function (will be rewritten in 'init')
+wakelock.method3.is_on = function(){return false;};    //dummy function (will be rewritten in 'init')
 wakelock.method3.init  = function(){
                            var controller = undefined
                              , signal     = undefined
@@ -117,6 +117,7 @@ wakelock.method3.init  = function(){
                             wakelock.method3._backend.controller = controller;
                             wakelock.method3._backend.signal     = signal;
                          };
+
 
 
 

@@ -16,9 +16,9 @@ fullscreen.on = function(target){
                   
                   result = vendor_function.call(target);  //a special way of executing, that also provides 'this' context.  https://www.reddit.com/r/learnjavascript/comments/6tdsqf/why_does_assigning_any_of_the_requestfullscreen/dljzs9m/
                   
-                  result.then(function(){     console.log("fullscreen is on, success.");                          })
-                        .catch(function(err){ console.log("fullscreen is still off due to an error.",err);        })
-                        ;
+                  //result.then(function(){     console.log("fullscreen is on, success.");                          })
+                  //      .catch(function(err){ console.log("fullscreen is still off due to an error.",err);        })
+                  //      ;
                 };
 
 fullscreen.off = function(){
@@ -33,9 +33,9 @@ fullscreen.off = function(){
 
                   result = vendor_function.call(self.document);  //a special way of executing, that also provides 'this' context.  https://www.reddit.com/r/learnjavascript/comments/6tdsqf/why_does_assigning_any_of_the_requestfullscreen/dljzs9m/
 
-                  result.then(function(){     console.log("fullscreen is off, success.");                         })
-                        .catch(function(err){ console.log("fullscreen is on off due to an error.",err);           })
-                  ;
+                  //result.then(function(){     console.log("fullscreen is off, success.");                         })
+                  //      .catch(function(err){ console.log("fullscreen is on off due to an error.",err);           })
+                  //;
                 }
 
 
@@ -62,9 +62,9 @@ document.onfullscreenchange = function(ev){
 document.documentElement.onmousedown = function(ev){  //double-click on the document.
                                          if(fullscreen.is_on()){
                                            fullscreen.off();
-                                           console.log("fullscreen off");
+                                           //console.log("fullscreen off");
                                          }else{
-                                           fullscreen.on();
-                                           console.log("fullscreen on");
+                                           fullscreen.on(undefined);
+                                           //console.log("fullscreen on");
                                          }
                                        };
